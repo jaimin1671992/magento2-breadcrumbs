@@ -35,22 +35,6 @@ class Breadcrumbs extends MagentoBreadcrumbs
         parent::__construct($context, $data);
     }
 
-    /**
-     * Retrieve HTML title value separator (with space)
-     *
-     * @param null|string|bool|int|Store $store
-     * @return string
-     */
-    public function getTitleSeparator($store = null)
-    {
-        $separator = (string)$this->_scopeConfig->getValue(
-            'catalog/seo/title_separator',
-            ScopeInterface::SCOPE_STORE,
-            $store
-        );
-
-        return ' ' . $separator . ' ';
-    }
 
     public function getCrumbs()
     {
@@ -90,11 +74,6 @@ class Breadcrumbs extends MagentoBreadcrumbs
                     $breadcrumbsBlock->addCrumb("category" . $category->getId(), $catbreadcrumb);
                     $title[] = $category->getName();
                 }
-
-                //add current product to breadcrumb
-                $prodbreadcrumb = ["label" => $product->getName(), "link" => ""];
-                $breadcrumbsBlock->addCrumb("product" . $product->getId(), $prodbreadcrumb);
-                $title[] = $product->getName();
             } else {
                 foreach ($path as $name => $breadcrumb) {
                     $breadcrumbsBlock->addCrumb($name, $breadcrumb);
