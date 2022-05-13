@@ -1,0 +1,13 @@
+{
+    "name": "jaimin/breadcrumb",
+    "description": "This module add full Breadcrumb of the product detail page",
+    "type": "magento2-module",
+    "autoload": {
+        "files": [
+            "Jaimin/Breadcrumb/registration.php"
+        ],
+        "psr-4": {
+            "Jaimin\\Breadcrumb\\": "Jaimin\/Breadcrumb"
+        }
+    }
+}
