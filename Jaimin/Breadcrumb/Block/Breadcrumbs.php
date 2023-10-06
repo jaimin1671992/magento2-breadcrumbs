@@ -80,7 +80,7 @@ class Breadcrumbs extends MagentoBreadcrumbs
                     $title[] = $breadcrumb['label'];
                 }
             }
-            $this->pageConfig->getTitle()->set(join($this->getTitleSeparator(), array_reverse($title)));
+            $this->pageConfig->getTitle()->set(join($this->getTitleSeparator() ?? '', array_reverse($title)));
 
             return parent::_prepareLayout();
         }
@@ -89,7 +89,7 @@ class Breadcrumbs extends MagentoBreadcrumbs
         foreach ($path as $name => $breadcrumb) {
             $title[] = $breadcrumb['label'];
         }
-        $this->pageConfig->getTitle()->set(join($this->getTitleSeparator(), array_reverse($title)));
+        $this->pageConfig->getTitle()->set(join($this->getTitleSeparator() ?? '', array_reverse($title)));
 
         return parent::_prepareLayout();
     }
